@@ -12,11 +12,13 @@ const APP_STRUCTURE = {
         css     : APP_TMP_PATH + '/css',
         images    :  APP_TMP_PATH + '/images',
         fonts   : APP_TMP_PATH + '/fonts',
+        js      : APP_TMP_PATH + '/js',
     },
     src: {
         scss    :  APP_SRC_PATH + '/scss',
         images    :  APP_SRC_PATH + '/images',
         fonts   :   APP_SRC_PATH + '/fonts',
+        js      : APP_SRC_PATH + '/js',
     }
 }
 //--Compiler scss
@@ -43,6 +45,12 @@ gulp.task('copy:fonts',function(){
         prefix:2,
     }))
 })
+gulp.task('copy:js',function(){
+    return gulp.src(APP_STRUCTURE.src.js +'/**/*.js')
+    .pipe(gulpcopy(APP_STRUCTURE.tmp.js,{
+        prefix:2,
+    }))
+})
 //--watch change
 gulp.task('watchchange',function()
 {
@@ -53,4 +61,5 @@ gulp.task('watchchange',function()
     gulp.watch(APP_STRUCTURE.src.fonts + '/**/*.{otf,eot,svg,ttf,woff,woff2}',{
         events: ['add','change'],
     },gulp.series('copy:fonts'))
+    gulp.watch(APP_STRUCTURE.src.js +'/**/*.js',gulp.series('copy:js'))
 })
