@@ -21,7 +21,9 @@ const APP_STRUCTURE = {
 gulp.task('compileScss',function()
 {
     return gulp.src(APP_STRUCTURE.src.scss +'/**/*.scss')
-    .pipe(gulpsass())//convert scss to css
+    .pipe(gulpsass().on('error',function(error){
+        console.log(error.message);
+      }))//convert scss to css
     .pipe(gulp.dest(APP_STRUCTURE.tmp.css))
 }
 )
