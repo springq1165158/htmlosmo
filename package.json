@@ -13,7 +13,11 @@
     "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",
     "gulp-copy": "^4.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-nunjucks": "^4.0.0",
     "gulp-sass": "^4.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-imagemin": "^5.0.3"
+  }
 }
