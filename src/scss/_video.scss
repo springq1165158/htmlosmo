@@ -1,0 +1,58 @@
+.hero-video{
+    position: relative;
+    .inner-video{
+        width: 100%;
+        height: 77vh;
+        position: relative;
+        overflow: hidden;
+        video{
+            @include positionCenter;
+            width: 100vw;
+        }
+    }
+    .text-on{
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        .big-text{        
+            font-size: 65px;
+            color: white!important;
+            font-weight: 700;
+            line-height: 70px;
+        }
+        .button-on{
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            margin-top: 30px;
+            >div{
+                padding: 15px 48px;
+            }
+            .shop-now{
+                @include borderradius(60px);
+                background: #ff900a;
+                -webkit-box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
+                box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
+                a{
+                    color: white;
+                    font-size: 22px;
+                    font-weight: 700;
+                }
+            }
+            .watch-video{
+                a{
+                    color: white;
+                    font-size: 23px;
+                }
+                .play-button{
+                    position: relative;
+                    :before{
+                        content: "";
+                    }
+                }
+            }
+        }
+    }
+}

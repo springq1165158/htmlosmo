@@ -1,0 +1,19 @@
+.powerplay-block{
+    @include flexbox;
+    .left-col{
+        @include flexbox;
+        @include flex-flow(column wrap);
+        @include justify-content(center);
+        .left-col-title{}
+        .left-col-des{}
+        .group-image{}
+    }
+    .right-col{
+        .right-col-image{
+
+        }
+        .right-col-link{
+
+        }
+    }
+}
