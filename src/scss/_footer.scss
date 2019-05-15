@@ -1,0 +1,29 @@
+.footer-block{
+    .footer-up{
+        background: $gray;
+        .container{
+            .footer-menu{
+                @include flexbox;
+                @include justify-content(space-between);
+                .menu{
+                    @include flexbox;
+                    .menu-item{
+                        a{
+                            color:$grayless;
+                            @include hoverNone;
+                            padding: .5rem 1rem;
+                            &:hover{
+                                color:white;
+                            }
+                        }
+                    }
+                .lang{}
+                }
+            }
+            .footer-contact{
+            }
+        }
+    }
+    .footer-bot{
+    }
+}
