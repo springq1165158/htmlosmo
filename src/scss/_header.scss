@@ -39,12 +39,11 @@
             }
         }
         .shop-now{
-            :hover{
-                @include transformScale(1.05);
-                text-decoration: none;
+            @include osmo-transition-scale;
+            a{
+                @include hoverNone;
             }
             .shop-button{
-                @include transitionCross(.2s);
                 position: relative;
                 :before {
                     position: absolute;
@@ -67,9 +66,4 @@
             }
         }
     }
-}
-@media (min-width: 1200px){
-.container{
-    max-width: 1170px;
-}
 }

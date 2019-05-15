@@ -106,14 +106,14 @@ gulp.task('browserSync:start',function(){
     })
 });
 gulp.task('browserSync:reload',function(done){
-    brownserSync.reload();
+    browserSync.reload();
     return done();
 })
 //--watch change
 gulp.task('watchchange',function()
 {
-    gulp.watch(APP_STRUCTURE.src.njk +'/**/*.njk',gulp.series('convertNunjucks'))
-    gulp.watch(APP_STRUCTURE.src.scss +'/**/*.scss',gulp.series('compileScss'))
+    gulp.watch(APP_STRUCTURE.src.njk +'/**/*.njk',gulp.series('convertNunjucks','browserSync:reload'))
+    gulp.watch(APP_STRUCTURE.src.scss +'/**/*.scss',gulp.series('compileScss','browserSync:reload'))
     gulp.watch(APP_STRUCTURE.src.images +'/**/*.{jpg,png,gif,svg}',{
         events: ['add','change'],
     },gulp.series('copy:images'))

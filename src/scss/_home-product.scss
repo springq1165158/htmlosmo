@@ -160,17 +160,7 @@
     .see-how{
         text-align: center;
         a{
-            @include transitionCross(.5s);
-            @include borderradius(30px);
-            color: $blue;
-            border:solid 1px $blue;
-            font-size: 1.1rem;
-            padding: .7rem 1rem;
-            &:hover{
-                color:white;
-                background: $blue;
-                @include hoverNone;
-            }
+            @include button-osmo($blue,#fff)
         }
     }
 }

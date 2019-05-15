@@ -1,0 +1,23 @@
+.available-block{
+    background: $graybg;
+    .container{
+        .available-block_body{
+            @include flexbox;
+            @include justify-content(center);
+            .text{
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: $gray;
+                padding-top: .2rem;
+            }
+            .space{
+                width:4vw;
+            }
+            .image{
+                img{
+                    max-width: 11rem;
+                }
+            }
+        }
+    }
+}

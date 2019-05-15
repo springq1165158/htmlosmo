@@ -1,0 +1,33 @@
+.peoplelove-block{
+    .container{
+        .peoplelove-block_body{
+            .title{
+                text-align: center;
+            }
+            .images-block{
+                @include flexbox;
+                @include flex-direction(row);
+                @include justify-content(space-around);
+                .image-s{
+                    img{
+                        max-width: 200px;
+                        max-height: 200px;
+                    }
+                }
+            }
+            .des{
+                .des-inner{
+                    width: fit-content;
+                    margin: auto;
+                    a{
+                        color: $blue;
+                    }
+                    img{
+                        max-width: 60px;
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

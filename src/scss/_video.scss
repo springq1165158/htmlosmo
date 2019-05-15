@@ -28,17 +28,13 @@
             flex-wrap: nowrap;
             margin-top: 30px;
             >div{
-                padding: 15px 48px;
+                padding: 15px 0;
             }
             .shop-now{
-                @include borderradius(60px);
-                background: #ff900a;
-                -webkit-box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
-                box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
+                @include osmo-transition-scale;
                 a{
-                    color: white;
-                    font-size: 22px;
-                    font-weight: 700;
+                    @include button-orange(20px,35px,1.5rem);
+                    @include hoverNone;
                 }
             }
             .watch-video{

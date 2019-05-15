@@ -188,3 +188,67 @@ display: inline-flex;
 @mixin hoverNone {
     text-decoration: none!important;  
 }
+@mixin osmo-transition-scale($transitionTime:.5s,$transform:1.05) {
+  @include transitionCross($transitionTime);
+  &:hover{
+      @include transformScale($transform);
+      text-decoration: none;
+  }
+}
+@mixin osmo-gradient-bg {
+    background-color: #ff900a;
+    background-image: linear-gradient(to right,#ff9b0b 0,#ff8408 100%);
+    background-repeat: repeat-x;
+}
+@mixin hover-image($color) {
+  &:hover{
+    >.image-color{
+        opacity: 1;
+    }
+    >.image-title{
+        color: $color;
+    }
+  }
+}
+@mixin button-osmo($text, $bg) {
+    @include transitionCross(.5s);
+    @include borderradius(30px);
+    color: $text;
+    border:solid 1px $text;
+    font-size: 1.1rem;
+    padding: .7rem 1rem;
+    background-color: $bg;
+    &:hover{
+        color:$bg;
+        background-color: $text;
+        @include hoverNone;
+    }
+  }
+@mixin play-button{
+  background: rgba(0,0,0,.4);
+  border-radius: 50%;
+  color: #fff;
+  border: 2px solid #fff;
+  display: inline-block;
+  width: 72px;
+  &:before{
+    display: block;
+    content: '';
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background-image: url("../images/play-button.svg");
+    background-size: 40%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+@mixin button-orange($padding-x,$padding-y,$fontsize) {
+  color: white;
+  padding:$padding-x $padding-y;
+  font-size: $fontsize;
+  font-weight: 700;
+  @include borderradius(60px);
+  background: #ff900a;
+  -webkit-box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
+  box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
+}

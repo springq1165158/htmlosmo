@@ -1,0 +1,60 @@
+.schoolosmo-block{
+    background-color: $blue;
+    .left-col{
+        @include flexbox;
+        @include flex-flow(column wrap);
+        @include justify-content(center);
+        .left-col-title{
+            font-size: 2rem;
+            font-weight: bold;
+            padding-bottom: 1rem;
+            color: white;
+        }
+        .left-col-des{
+            color: white;
+            p{
+                letter-spacing: normal;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+        .osmo-school{
+            padding-top:1.5rem;
+            a{
+                @include button-osmo(#fff,$blue);
+                &:hover{
+                }
+            }
+        }
+    }
+    .right-col{
+        .popup{
+            max-width: 480px;
+            margin: auto;
+            .image-bg{
+                background-image: url("../images/d2cb86b.schools-video-frame.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                max-width: 480px;
+                margin: auto;
+                padding-bottom: 50%;
+                position: relative;
+                .vh-center{
+                    @include positionCenter;
+                    .play-button{
+                        @include play-button;
+                    }
+                }
+            }
+            &:hover{
+                >.image-bg{
+                    .vh-center{
+                        .play-button{
+                            background: #0000008f;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.feature-block{
+    background-image: url("../images/27a59d2.background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    >div{
+        .feature-block_title{
+            color:white;
+        }
+        .slide-product{
+            .product{
+                @include flexbox;
+                @include align-items(center);
+                .product-image{
+                    img{
+                        max-width: 396px;
+                    }
+                }
+                .product-info{
+                    text-align: center;
+                    color:white;
+                    .product-title-image{
+                        img{
+                            max-width: 249px;
+                        }
+                    }
+                    .product-des{}
+                    .product-price{
+                        font-weight: bold;
+                        font-size:1.1rem
+                    }
+                    .shopnow{
+                        @include osmo-transition-scale;
+                        a{
+                            @include hoverNone;
+                            @include button-orange(15px,25px,1rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
