@@ -2,7 +2,7 @@
     position: relative;
     .inner-video{
         width: 100%;
-        height: 77vh;
+        height: 56vw;
         position: relative;
         overflow: hidden;
         video{
@@ -18,35 +18,57 @@
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
         .big-text{        
-            font-size: 65px;
+            font-size: 3rem;
             color: white!important;
             font-weight: 700;
-            line-height: 70px;
+            line-height: 3rem;
         }
         .button-on{
             justify-content: flex-start;
             flex-wrap: nowrap;
-            margin-top: 30px;
+            margin-top: 10px;
             >div{
-                padding: 15px 0;
+                padding: 1rem 0;
             }
             .shop-now{
                 @include osmo-transition-scale;
                 a{
-                    @include button-orange(20px,35px,1.5rem);
+                    @include button-orange(8px 20px,1.5rem);
                     @include hoverNone;
                 }
             }
             .watch-video{
+                padding:1rem;
                 a{
                     color: white;
-                    font-size: 23px;
+                    font-size: 1.5rem;
                 }
                 .play-button{
                     position: relative;
                     :before{
                         content: "";
                     }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:481px){
+    .hero-video{
+        .text-on{
+            .big-text{
+                font-size: 5rem;
+                line-height: 5rem;
+            }
+            .button-on{
+                margin-top: 30px;
+                .shop-now{
+                    a{
+                        padding: 20px 35px;
+                    }
+                }
+                .watch-video{
+                    
                 }
             }
         }

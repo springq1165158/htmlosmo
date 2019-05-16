@@ -1,0 +1,167 @@
+.fan-block{
+    background:$orange;
+    color: white;
+    .container{
+        .fan-block_title{
+            text-align: center;
+            h2{}
+            .block-des{}
+        }
+        .fan-block_body{
+            .product-grid{
+                @include flexbox;
+                @include justify-content(space-around);
+                @include flex-flow(column nowrap);
+                .product{
+                    background: white;
+                    color: $gray;
+                    @include flexbox;
+                    @include flex-flow(row nowrap);
+                    @include justify-content(space-around);
+                    @include align-items(center);
+                    @include borderradius(20px);
+                    padding: 2rem 1rem;
+                    margin: 1rem;
+                    .image{
+                        position: relative;
+                        width: 100%;
+                        height: 31vw;
+                        img{
+                            position: absolute;
+                            content: "";
+                            top: 50%;
+                            left: 50%;
+                            -webkit-transform: translate(-50%, -50%);
+                            -ms-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+                    .info{
+                        @include flexbox;
+                        @include flex-flow(column nowrap);
+                        @include justify-content(space-around);
+                        @include align-items(flex-start);
+                        @include borderradius(20px);
+                        .name{
+                            font-size: 1.6rem;
+                            font-weight: bold;
+                        }
+                        .review{
+                            position: relative;
+                            text-align: left;
+                            .rating{
+                                display: inline-block;
+                                .star{
+                                    display: inline-block;
+                                    @include star(15px,url("../images/efc9f9b.1.png"));
+                                }
+                                .star1{
+                                    display: inline-block;
+                                    @include star(15px,url("../images/ad2535b.0.5.png"));
+                                }
+                                .star2{
+                                    display: inline-block;
+                                    @include star(15px,url("../images/c89063e.0.25.png"));
+                                }
+                            }
+                            .text{
+                                display: inline-block;
+                                img{
+                                    max-width: 60px;
+                                    margin-top: 4px;
+                                }
+                            }
+                        }
+                        .des{
+                            text-align: left;
+                        }
+                        .price{
+                            font-weight: bold;
+                            font-size: 1.1rem;
+                        }
+                        .learnmore{
+                            display: block;
+                            @include button-orange(8px 20px,1rem);
+                            @include osmo-transition-scale;
+                            -webkit-box-shadow:none;
+                            box-shadow:none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:481px){
+    .fan-block{
+        .container{
+            .fan-block_title{
+                h2{}
+                .block-des{}
+            }
+            .fan-block_body{
+                .product-grid{
+                    .product{
+                        .image{
+                            img{}
+                        }
+                        .name{}
+                        .review{
+                            .rating{
+                                .star{}
+                            }
+                            .text{
+                                img{}
+                            }
+                        }
+                        .des{}
+                        .price{}
+                        .learnmore{}
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:769px){
+    .fan-block{
+        .container{
+            .fan-block_title{
+                h2{}
+                .block-des{}
+            }
+            .fan-block_body{
+                .product-grid{
+                    @include flex-flow(row nowrap);
+                    .product{
+                        @include flex-flow(column nowrap);
+                        .image{
+                            height: 14vw;
+                            img{}
+                        }
+                        .info{
+                            @include align-items(center);
+                            .name{}
+                            .review{
+                                text-align: center;
+                                .rating{
+                                    .star{}
+                                }
+                                .text{
+                                    img{}
+                                }
+                            }
+                            .des{
+                                text-align: center;
+                            }
+                            .price{}
+                            .learnmore{}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,29 +1,283 @@
 .footer-block{
+    color:$grayfooterlight;
     .footer-up{
-        background: $gray;
+        background: $grayfooterupbg;
         .container{
-            .footer-menu{
-                @include flexbox;
-                @include justify-content(space-between);
-                .menu{
+            .container-footer{
+                max-width: 900px;
+                margin: auto;
+                .footer-menu{
                     @include flexbox;
-                    .menu-item{
-                        a{
-                            color:$grayless;
-                            @include hoverNone;
-                            padding: .5rem 1rem;
+                    @include justify-content(space-between);
+                    .menu{
+                        @include flexbox;
+                        .menu-item{
+                            a{
+                                color:$grayfooter;
+                                @include hoverNone;
+                                padding: .5rem 1rem;
+                                &:hover{
+                                    color:white;
+                                }
+                            }
+                        }
+                    }
+                    .lang{
+                        position: relative;
+                        margin-left:27px;
+                        .image{
+                            position:absolute;
+                            content:"";
+                            left:-27px;
+                            img{
+                                max-width: 20px;
+                            }
+                        }
+                        .text{
+                            color: $grayfooter;
                             &:hover{
                                 color:white;
                             }
                         }
                     }
-                .lang{}
                 }
-            }
-            .footer-contact{
+                .footer-contact{
+                    .mail{
+                        display: inline-block;
+                        >div{
+                            display: inline-block;
+                        }
+                        .des{
+                            text-align: center;
+                            line-height: 20px;
+                            max-width: 20rem;
+                            position: relative;
+                            top: .5rem;
+                            padding: 0 1rem;
+                        }
+                        .signup{
+                            position: relative;
+                            input{
+                                @include borderradius(60px);
+                                @include notDefault;
+                                width: 100%;
+                                max-height: 42px;
+                                padding: 16px 100px 16px 20px;
+                            }
+                            .button-signup{
+                                @include button-orange2-hover(12px 20px,12px);
+                                border: none!important;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                            }
+                        }
+                    }
+                    .social{
+                        display: inline-block;
+                        float:none;
+                        text-align:center;
+                        padding: 5px 0;
+                        a{
+                            display: inline-block;
+                            height: 42px;
+                            width:42px;
+                            background-image: url("../images/2242984.social-media-sprite.png");
+                            background-size:256px 256px;
+                            background-repeat: no-repeat;
+                            background-position: -4px -4px;
+                        }
+                        .pos2{
+                            background-position: -4px -54px;
+                        }
+                        .pos3{
+                            background-position: -4px -104px;
+                        }
+                        .pos4{
+                            background-position: -4px -154px;
+                        }
+                        .pos5{
+                            background-position: -4px -204px;
+                        }
+                    }
+                }
             }
         }
     }
     .footer-bot{
+        background: $grayfooterbotbg;
+        .footer-link{
+            a{
+                @include hoverNone;
+                color:$grayfooter;
+                padding: .7rem;
+            }
+        }
+        .trademark{
+            p{
+                font-size: 11px;
+            }
+        }
+    }
+}
+@media screen and (min-width:577px){
+    .footer-block{
+        .footer-up{
+            .container{
+                .container-footer{
+                    .footer-menu{
+                        .menu{
+                            .menu-item{
+                                a{
+                                }
+                            }
+                        }
+                        .lang{
+                            .image{
+                                img{
+                                }
+                            }
+                            .text{
+                            }
+                        }
+                    }
+                    .footer-contact{
+                        .mail{
+                            .des{
+                                text-align: left;
+                            }
+                            .signup{
+                                input{
+                                }
+                                .button-signup{
+                                }
+                            }
+                        }
+                        .social{
+                            a{
+                            }
+                            .pos2{
+
+                            }
+                            .pos3{
+                            }
+                            .pos4{
+                            }
+                            .pos5{
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-bot{
+        }
+    }
+}
+@media screen and (min-width:769px){
+    .footer-block{
+        .footer-up{
+            .container{
+                .container-footer{
+                    .footer-menu{
+                        .menu{
+                            .menu-item{
+                                a{
+                                }
+                            }
+                        }
+                        .lang{
+                            .image{
+                                img{
+                                }
+                            }
+                            .text{
+                            }
+                        }
+                    }
+                    .footer-contact{
+                        .mail{
+                            .des{
+                            }
+                            .signup{
+                                input{
+                                }
+                                .button-signup{
+                                }
+                            }
+                        }
+                        .social{
+                            float: right;
+                            a{
+                            }
+                            .pos2{
+
+                            }
+                            .pos3{
+                            }
+                            .pos4{
+                            }
+                            .pos5{
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-bot{
+        }
+    }
+}
+@media screen and (min-width:993px){
+    .footer-block{
+        .footer-up{
+            .container{
+                .container-footer{
+                    .footer-menu{
+                        .menu{
+                            .menu-item{
+                                a{
+                                }
+                            }
+                        }
+                        .lang{
+                            .image{
+                                img{
+                                }
+                            }
+                            .text{
+                            }
+                        }
+                    }
+                    .footer-contact{
+                        .mail{
+                            .des{
+                            }
+                            .signup{
+                                input{
+                                }
+                                .button-signup{
+                                }
+                            }
+                        }
+                        .social{
+                            a{
+                            }
+                            .pos2{
+
+                            }
+                            .pos3{
+                            }
+                            .pos4{
+                            }
+                            .pos5{
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-bot{
+        }
     }
 }

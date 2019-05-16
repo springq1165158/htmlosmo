@@ -188,6 +188,11 @@ display: inline-flex;
 @mixin hoverNone {
     text-decoration: none!important;  
 }
+@mixin notDefault{
+    text-decoration: none!important;
+    border: none!important;
+    outline: none!important;
+}
 @mixin osmo-transition-scale($transitionTime:.5s,$transform:1.05) {
   @include transitionCross($transitionTime);
   &:hover{
@@ -242,13 +247,51 @@ display: inline-flex;
     background-repeat: no-repeat;
   }
 }
-@mixin button-orange($padding-x,$padding-y,$fontsize) {
+@mixin orange-osmo-gradient {
+  background-color: #ff900a;
+  background-image: -webkit-gradient(linear,left top, right top,color-stop(0, #ff9b0b),to(#ff8408));
+  background-image: -webkit-linear-gradient(left,#ff9b0b 0,#ff8408 100%);
+  background-image: -o-linear-gradient(left,#ff9b0b 0,#ff8408 100%);
+  background-image: linear-gradient(to right,#ff9b0b 0,#ff8408 100%);
+}
+@mixin button-orange($padding,$fontsize) {
   color: white;
-  padding:$padding-x $padding-y;
+  padding:$padding;
   font-size: $fontsize;
   font-weight: 700;
   @include borderradius(60px);
-  background: #ff900a;
+  @include orange-osmo-gradient;
   -webkit-box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
   box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.5215686274509804);
+}
+@mixin button-orange2-hover($padding,$fontsize) {
+  color: white;
+  padding:$padding;
+  font-size: $fontsize;
+  font-weight: 700;
+  @include borderradius(60px);
+  @include orange-osmo-gradient;
+  &:hover{
+    background-color: #d67500;
+    background-image:-webkit-gradient(linear,left top, right top,color-stop(0, #ff8408),to(#ff8408));
+    background-image:-webkit-linear-gradient(left,#ff8408 0,#ff8408 100%);
+    background-image:-o-linear-gradient(left,#ff8408 0,#ff8408 100%);
+    background-image:linear-gradient(to right,#ff8408 0,#ff8408 100%);
+  }
+}
+@mixin star($size,$url) {
+  background-image: $url;
+  background-size: $size;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: $size;
+  height: $size;
+}
+@mixin bg-image($size,$url,$pos,$repeat,$width,$height) {
+  background-image: $url;
+  background-size: $size;
+  background-position: $pos;
+  background-repeat: $repeat;
+  width: $width;
+  height: $height;
 }

@@ -1,5 +1,5 @@
 html{
-    font-size: 8px;
+    font-size: 10px;
 }
 @media screen and (min-width:481px){
     html{
@@ -24,3 +24,5 @@ html{
 @import './_peoplelove';
 @import './_available';
 @import './_footer';
+@import './homebestseller';
+@import './fanfavorites';

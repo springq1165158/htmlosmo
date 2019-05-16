@@ -33,7 +33,7 @@
                         @include osmo-transition-scale;
                         a{
                             @include hoverNone;
-                            @include button-orange(15px,25px,1rem);
+                            @include button-orange(15px 25px,1rem);
                         }
                     }
                 }
