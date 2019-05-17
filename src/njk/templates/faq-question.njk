@@ -1,0 +1,32 @@
+<section class="faq-block">
+    <div class="block-head">
+        <div class="container">
+            <div class="block-title">Frequently Asked Questions</div>
+        </div>
+    </div>
+
+    <div class="block-body">
+        <div class="container">
+            <div id="faq-panel-wrap" class="faq-panel-wrap">
+                {% for faq in faqs %}
+                    <div class="faq-panel">
+                        <div class="panel-head">{{faq.head}}</div>
+                        <div class="panel-body">
+                            <div class="content-list">
+                                {{faq.content}}
+                            </div>
+                        </div>
+                    </div><!-- .faq-panel -->
+                {% endfor %}
+            </div><!-- .faq-panel-wrap -->
+        </div><!-- .container -->
+    </div><!-- .block-body -->
+
+    <div class="block-footer">
+        <div class="container">
+            <div class="text-big">Didn’t find what you were looking for?</div>
+            <div class="des">
+            Visit our <a href="#">Help Center</a> for more information.</div>
+        </div>
+    </div>
+</section><!-- .faq-block -->

@@ -4,46 +4,55 @@
     {% include "src/njk/templates/header.njk" %}
 {% endblock %}
 
-{% block herovideo %}
-    {% include "src/njk/templates/herovideo.njk" %}
-{% endblock %} 
+{% block body %}
 
-{% block homeproduct %}
-    {% include "src/njk/templates/home-product.njk" %}
-{% endblock %} 
+    {% block herovideo %}
+        {% include "src/njk/templates/herovideo.njk" %}
+    {% endblock %} 
 
-{% block powerplay %}
-    {% include "src/njk/templates/powerplay.njk" %}
-{% endblock %}
+    {% block homeproduct %}
+        {% include "src/njk/templates/home-product.njk" %}
+    {% endblock %} 
 
-{% block schoolosmo %}
-    {% include "src/njk/templates/schoolosmo.njk" %}
-{% endblock %}
+    {% block powerplay %}
+        {% include "src/njk/templates/powerplay.njk" %}
+    {% endblock %}
 
-{% block homebestseller %}
-    {% include "src/njk/templates/homebestseller.njk" %}
-{% endblock %}
+    {% block schoolosmo %}
+        {% include "src/njk/templates/schoolosmo.njk" %}
+    {% endblock %}
 
-{% block fanfavorites %}
-    {% include "src/njk/templates/fanfavorites.njk" %}
-{% endblock %}
+    {% block homebestseller %}
+        {% include "src/njk/templates/homebestseller.njk" %}
+    {% endblock %}
 
-{% block featuregame %}
-    {% include "src/njk/templates/featuregame.njk" %}
-{% endblock %}
+    {% block fanfavorites %}
+        {% include "src/njk/templates/fanfavorites.njk" %}
+    {% endblock %}
 
-{% block anonymousblock %}
-    {% include "src/njk/templates/anonymousblock.njk" %}
-{% endblock %} 
+    {% block featuregame %}
+        {% include "src/njk/templates/featuregame.njk" %}
+    {% endblock %}
 
-{% block peoplelove %}
-    {% include "src/njk/templates/peoplelove.njk" %}
-{% endblock %}
+    {% block anonymousblock %}
+        {% include "src/njk/templates/anonymousblock.njk" %}
+    {% endblock %} 
 
-{% block available %}
-    {% include "src/njk/templates/available.njk" %}
+    {% block peoplelove %}
+        {% include "src/njk/templates/peoplelove.njk" %}
+    {% endblock %}
+
+    {% block available %}
+        {% include "src/njk/templates/available.njk" %}
+    {% endblock %}
+
 {% endblock %}
 
 {% block footer %}
     {% include "src/njk/templates/footer.njk" %}
+{% endblock %}
+
+
+{% block script %}
+    <script src="../js/home.js"></script>
 {% endblock %} 

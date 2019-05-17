@@ -11,18 +11,20 @@ html{
         font-size: 16px;
     }
 }
-@import './var';
+@import './normalize';
+@import './_var';
 @import './_mixin';
-@import './custom';
+@import './_custom';
 @import './_header';
 @import './_video';
 @import './_home-product';
-@import './powerplay';
-@import './schoolosmo';
-@import './featuregame';
+@import './_powerplay';
+@import './_schoolosmo';
+@import './_featuregame';
 @import './_anonymousblock';
 @import './_peoplelove';
 @import './_available';
 @import './_footer';
-@import './homebestseller';
-@import './fanfavorites';
+@import './_homebestseller';
+@import './_fanfavorites';
+@import './_faq-question';

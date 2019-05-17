@@ -7,6 +7,9 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const browserSync = require('browser-sync').create();
 const gulpPlumber = require('gulp-plumber');
 const gulpDependents = require('gulp-dependents');
+const gulpcleancss = require('gulp-clean-css');
+const gulpclean = require('gulp-clean');
+const data = require('gulp-data');
 //init libary
 gulpsass.compiler = require ('node-sass');
 //---config structure 
@@ -20,6 +23,7 @@ const APP_STRUCTURE = {
         fonts   : APP_TMP_PATH + '/fonts',
         js      : APP_TMP_PATH + '/js',
         htmls   : APP_TMP_PATH + '/htmls',
+        videos   : APP_TMP_PATH + '/videos',
     },
     src :{
         scss    :  APP_SRC_PATH + '/scss',
@@ -28,6 +32,7 @@ const APP_STRUCTURE = {
         js      : APP_SRC_PATH + '/js',
         njk  : APP_SRC_PATH + '/njk',
         templates : APP_SRC_PATH + '/njk/templates',
+        videos   : APP_SRC_PATH + '/videos',
     },
     dist:{
         scss    :  APP_DIST_PATH + '/scss',
@@ -35,8 +40,14 @@ const APP_STRUCTURE = {
         fonts   :   APP_DIST_PATH + '/fonts',
         js      : APP_DIST_PATH + '/js',
         htmls   :APP_DIST_PATH + '/htmls',
+        videos   : APP_DIST_PATH + '/videos',
     }
 }
+//--
+gulp.task('clean:tmp', function () {
+    return gulp.src(APP_TMP_PATH, {read: false,allowEmpty: true})
+    .pipe(gulpclean());
+});
 //--Compiler scss
 gulp.task('compileScss',function()
 {
@@ -62,7 +73,6 @@ gulp.task('copy:images',function()
 gulp.task('copy:fonts',function(){
     return gulp.src(APP_STRUCTURE.src.fonts +'/**/*.{otf,eot,svg,ttf,woff,woff2}')
     .pipe(gulpPlumber())
-    .pipe(gulpDependents())
     .pipe(gulpcopy(APP_STRUCTURE.tmp.fonts,{
         prefix:2,
     }))
@@ -70,10 +80,16 @@ gulp.task('copy:fonts',function(){
 gulp.task('copy:js',function(){
     return gulp.src(APP_STRUCTURE.src.js +'/**/*.js')
     .pipe(gulpPlumber())
-    .pipe(gulpDependents())
     .pipe(gulpcopy(APP_STRUCTURE.tmp.js,{
         prefix:2,
     }))
+})
+gulp.task('copy:videos',function(){
+  return gulp.src(APP_STRUCTURE.src.videos +'/**/*.{mp4,webm}')
+  .pipe(gulpPlumber())
+  .pipe(gulpcopy(APP_STRUCTURE.tmp.videos,{
+      prefix:2,
+  }))
 })
 //--image min
 gulp.task('image:min',function(){
@@ -86,10 +102,19 @@ gulp.task('image:min',function(){
 //--convert nunjuck to HTML
 gulp.task('convertNunjucks',function(){
     return gulp.src(APP_STRUCTURE.src.njk + '/pages/*.njk')
+    .pipe(data(function() {
+        return require('./src/njk/data.json')
+      }))
     .pipe(nunjucksRender({
-        path : APP_STRUCTURE.src.njk.templates
+        path : APP_STRUCTURE.src.njk.templates,
     }))
-    .pipe(gulp.dest(APP_STRUCTURE.tmp.htmls))
+    .pipe(gulp.dest(APP_TMP_PATH))
+})
+//--Minifying CSS
+gulp.task('cleancss',function(){
+    return gulp.src(APP_STRUCTURE.tmp.css + '/*.css')
+    .pipe(gulpcleancss())
+    .pipe(gulp.dest(APP_STRUCTURE.dist.css))
 })
 //--auto reload
 gulp.task('browserSync:start',function(){
@@ -100,7 +125,7 @@ gulp.task('browserSync:start',function(){
             styles:['display:none']
         },
         server:{
-            baseDir:APP_TMP_PATH.htmls,
+            baseDir:APP_TMP_PATH,
             index:'index.html',
         }
     })
@@ -116,12 +141,31 @@ gulp.task('watchchange',function()
     gulp.watch(APP_STRUCTURE.src.scss +'/**/*.scss',gulp.series('compileScss','browserSync:reload'))
     gulp.watch(APP_STRUCTURE.src.images +'/**/*.{jpg,png,gif,svg}',{
         events: ['add','change'],
-    },gulp.series('copy:images'))
+    },gulp.series('copy:images','browserSync:reload'))
     gulp.watch(APP_STRUCTURE.src.fonts + '/**/*.{otf,eot,svg,ttf,woff,woff2}',{
         events: ['add','change'],
-    },gulp.series('copy:fonts'))
-    gulp.watch(APP_STRUCTURE.src.js +'/**/*.js',gulp.series('copy:js'))
+    },gulp.series('copy:fonts','browserSync:reload'))
+    gulp.watch(APP_STRUCTURE.src.js +'/**/*.js',gulp.series('copy:js','browserSync:reload'))
+    gulp.watch(APP_STRUCTURE.src.videos +'/**/*.{mp4,webm}',{
+      events: ['add','change'],
+  },gulp.series('copy:videos','browserSync:reload'))
 })
+//--dev
+gulp.task('dev',
+  gulp.series(
+    'clean:tmp',
+    'copy:images',
+    'copy:fonts',
+    'copy:js',
+    'copy:videos',
+    'compileScss',
+    'convertNunjucks',
+    gulp.parallel(
+      'watchchange',
+      'browserSync:start'
+    )
+  )
+)
 
 // 1. Compile .njk to html
 // 2. Viết cho tạo file .scss chỉ build đúng file mình sửa

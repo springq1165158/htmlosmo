@@ -1,0 +1,22 @@
+{
+    "faqs":[
+        {
+            "head":"What do I need to play Osmo?",
+            "content":[
+                "All you need is:",
+                "a compatible iPad, Amazon Fire tablet or iPhone",
+                "an Osmo base suitable for your device,",
+                "and an internet connection."
+            ]
+        },
+        {
+            "head":"What tablets and phones is Osmo compatible with?",
+            "content":[
+            "Compatible iPads: iPad 2, iPad (3rd Generation), iPad (4th Generation), iPad (5th Generation), iPad (6th Generation), iPad Mini, iPad Mini 2, iPad Mini 3, iPad Mini 4, iPad Air, iPad Air 2, the 9.7-inch and 10.5-inch iPad Pro.",
+            "Osmo is currently not compatible with the 11-inch and 12.9-inch iPad Pro.",
+            "The minimum iOS version needed is iOS 9.",
+            "Compatible Fire Tablets: 7th Generation Fire 7, 7th Generation Fire HD 8, 7th Generation Fire HD10, 8th Generation Fire HD 8.",
+            "Compatible iPhones: iPhone 6, 6s, 6 Plus, 6s Plus, 7, 7 Plus, 8 and 8 Plus."
+        ]}
+    ]
+}

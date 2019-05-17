@@ -1,0 +1,22 @@
+{% extends "src/njk/templates/layout.njk" %}
+
+{% block header %}
+    {% include "src/njk/templates/header.njk" %}
+{% endblock %}
+
+{% block body %}
+
+    {% block faq %}
+        {% include "src/njk/templates/faq-question.njk" %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    {% include "src/njk/templates/footer.njk" %}
+{% endblock %} 
+
+
+{% block script %}
+    <script src="../js/faq.js"></script>
+{% endblock %} 

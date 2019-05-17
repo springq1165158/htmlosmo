@@ -8,34 +8,61 @@
             color:white;
         }
         .slide-product{
-            .product{
-                @include flexbox;
-                @include align-items(center);
-                .product-image{
-                    img{
-                        max-width: 396px;
+            .swiper-container{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        .product{
+                            @include flexbox;
+                            @include align-items(center);
+                            .product-image{
+                                img{
+                                    max-width: 396px;
+                                }
+                            }
+                            .product-info{
+                                text-align: center;
+                                color:white;
+                                .product-title-image{
+                                    img{
+                                        max-width: 249px;
+                                    }
+                                }
+                                .product-des{}
+                                .product-price{
+                                    font-weight: bold;
+                                    font-size:1.1rem
+                                }
+                                .shopnow{
+                                    @include osmo-transition-scale;
+                                    a{
+                                        @include hoverNone;
+                                        @include button-orange(15px 25px,1rem);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                .product-info{
-                    text-align: center;
-                    color:white;
-                    .product-title-image{
-                        img{
-                            max-width: 249px;
-                        }
+                .swiper-pagination{
+                    .swiper-pagination-bullet{
+                        width:.6rem;
+                        height:.6rem;
                     }
-                    .product-des{}
-                    .product-price{
-                        font-weight: bold;
-                        font-size:1.1rem
+                    .swiper-pagination-bullet-active{
+                        background: white;
                     }
-                    .shopnow{
-                        @include osmo-transition-scale;
-                        a{
-                            @include hoverNone;
-                            @include button-orange(15px 25px,1rem);
-                        }
-                    }
+                }
+                .swiper-button-next{
+                    right:0;
+                    background-image:url("../images/844d9d3.right-arrow@2x.png");
+                    -webkit-transform:translateY(-50%);
+                    transform:translateY(-50%);
+                }
+                .swiper-button-prev{
+                    left:0;
+                    background-image:url("../images/844d9d3.right-arrow@2x.png");
+                    -webkit-transform: scale(-1,1) translateY(-50%);
+                    transform: scale(-1,1) translateY(-50%);
                 }
             }
         }
