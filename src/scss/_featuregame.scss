@@ -6,8 +6,12 @@
     >div{
         .feature-block_title{
             color:white;
+            padding:3rem 0 1rem;
         }
         .slide-product{
+            @include media-sm-up{
+                padding:3rem;
+            }
             .swiper-container{
                 .swiper-wrapper{
                     .swiper-slide{
@@ -16,7 +20,10 @@
                             @include align-items(center);
                             .product-image{
                                 img{
-                                    max-width: 396px;
+                                    max-width: inherit;
+                                    @include media-sm-up{
+                                        max-width: 396px;
+                                    }
                                 }
                             }
                             .product-info{
@@ -24,7 +31,10 @@
                                 color:white;
                                 .product-title-image{
                                     img{
-                                        max-width: 249px;
+                                        max-width: 200px;
+                                        @include media-sm-up{
+                                            max-width: 249px;
+                                        }
                                     }
                                 }
                                 .product-des{}
@@ -34,6 +44,10 @@
                                 }
                                 .shopnow{
                                     @include osmo-transition-scale;
+                                    padding-bottom: 30%;
+                                    @include media-sm-up{
+                                        padding: 0;
+                                    }
                                     a{
                                         @include hoverNone;
                                         @include button-orange(15px 25px,1rem);

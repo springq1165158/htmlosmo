@@ -13,7 +13,7 @@ html{
 }
 @import './normalize';
 @import './_var';
-@import './_mixin';
+@import './mixins/_mixin';
 @import './_custom';
 @import './_header';
 @import './_video';

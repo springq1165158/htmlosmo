@@ -25,13 +25,20 @@
             box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.24);
             .circle-inner{
                 .text{
-                    padding: 0 20px;
-                    font-size: 15px;
+                    padding: 0 16px;
+                    font-size: 12px;
+                    @media screen and (min-width:481px) {
+                        padding: 0 20px;
+                        font-size: 15px;
+                    }
                 }
                 .number{
-                    font-size: 30px;
+                    font-size: 25px;
                     font-weight: normal;
                     padding: 0 10px;
+                    @media screen and (min-width:481px) {
+                        font-size: 30px;
+                    }
                 }
             }
         }
@@ -42,10 +49,15 @@
         .home-product_title{
             .text{
                 .text-upper{
-                    font-size:35px;
+                    font-size:30px;
                     font-weight: bold;
                     text-align: center;
                     max-width: 100%;
+                    padding-top: 20px;
+                    @media screen and (min-width:481px) {
+                        font-size: 35px;
+                        padding-top: 0;
+                    }
                 }
                 .text-lower{
                     font-size: 15px;

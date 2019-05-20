@@ -2,12 +2,20 @@
     position: relative;
     .inner-video{
         width: 100%;
-        height: 56vw;
+        height: 150vw;
         position: relative;
         overflow: hidden;
+
+        @media screen and (min-width:481px){
+            height: 56vw;
+        }
         video{
             @include positionCenter;
-            width: 100vw;
+            width: 280vw;
+            @media screen and (min-width:481px){
+                height: 56vw;
+                width: 100%;
+            }
         }
     }
     .text-on{
@@ -17,24 +25,58 @@
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+        text-align: center;
+        height: 100%;
+        .container{
+            @include flexbox;
+            @include flex-direction(column);
+            @include justify-content(space-around);
+            height: 100%;
+            @media screen and (min-width:481px){
+                @include justify-content(unset);
+            }
+        }
+
+        @media screen and (min-width:481px){
+            text-align: left;
+            height:auto;
+        }
+
         .big-text{        
-            font-size: 3rem;
+            font-size: 4rem;
             color: white!important;
             font-weight: 700;
-            line-height: 3rem;
+            line-height: 5rem;
+            text-align: center;
+            width:100%;
+            @media screen and (min-width:481px){
+                font-size: 5rem;
+                line-height: 5rem;
+                text-align: left;
+            }
         }
         .button-on{
             justify-content: flex-start;
             flex-wrap: nowrap;
             margin-top: 10px;
+
+            @media screen and (min-width:481px){
+                margin-top: 30px;
+                @include flexbox;
+            }
             >div{
                 padding: 1rem 0;
             }
             .shop-now{
                 @include osmo-transition-scale;
                 a{
-                    @include button-orange(8px 20px,1.5rem);
+                    @include button-orange(17px 25px,2.5rem);
                     @include hoverNone;
+
+                    @media screen and (min-width:481px){
+                        padding: 20px 35px;
+                        @include button-orange(8px 20px,1.5rem);
+                    }
                 }
             }
             .watch-video{
@@ -48,27 +90,6 @@
                     :before{
                         content: "";
                     }
-                }
-            }
-        }
-    }
-}
-@media screen and (min-width:481px){
-    .hero-video{
-        .text-on{
-            .big-text{
-                font-size: 5rem;
-                line-height: 5rem;
-            }
-            .button-on{
-                margin-top: 30px;
-                .shop-now{
-                    a{
-                        padding: 20px 35px;
-                    }
-                }
-                .watch-video{
-                    
                 }
             }
         }

@@ -9,14 +9,18 @@
 //     });
 // })();
 (function(){
+    var $panelHead = null;
+    var $faqPanelParent = null;
     $('#faq-panel-wrap').on('click','.panel-head',function() {
-        if($('#faq-panel-wrap .panel-body').hasClass("active")){
-            $(this).next().removeClass("active");
-            $(this).next().slideUp();
+        $panelHead = $(this);
+        $faqPanelParent = $panelHead.parent();
+        if($faqPanelParent.hasClass("active")){
+            $faqPanelParent.removeClass("active");
+            $faqPanelParent.find('.panel-body').slideUp();
         }
         else{
-            $(this).next().addClass("active");
-            $(this).next().slideDown();
+            $faqPanelParent.addClass("active");
+            $faqPanelParent.find('.panel-body').slideDown();
         }
     });
 })();
