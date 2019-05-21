@@ -18,5 +18,24 @@
             "Compatible Fire Tablets: 7th Generation Fire 7, 7th Generation Fire HD 8, 7th Generation Fire HD10, 8th Generation Fire HD 8.",
             "Compatible iPhones: iPhone 6, 6s, 6 Plus, 6s Plus, 7, 7 Plus, 8 and 8 Plus."
         ]}
+    ],
+
+    "slides":[
+        {
+            "title":"Ocean view",
+            "img":"../images/12323.jpg"
+        },
+        {
+            "title":"Lake view",
+            "img":"../images/461047.jpg"
+        },
+        {
+            "title":"Sky view",
+            "img":"../images/30028.jpg"
+        },
+        {
+            "title":"Forest view",
+            "img":"../images/Autumn-Path-In-Forest-Wallpaper-2560x1600.jpg"
+        }
     ]
 }

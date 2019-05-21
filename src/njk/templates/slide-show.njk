@@ -1,0 +1,23 @@
+<section id="slideshow" class="slide-show-block">
+    <div class="container">
+        <div class="block-title">Slide Show</div>
+        <div class="block-body">
+            <div class="slide-show-wrap">
+                <div class="slide-item-wrap">
+                    {% for slide in slides %}
+                        <div class="item-slide">
+                            <div class="item-title">{{slide.title}}</div>
+                            <div class="item-body">
+                                <img src="{{slide.img}}">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="slide-button next-button"></div>
+                <div class="slide-button prev-button"></div>
+                <div class="pagination-slide">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

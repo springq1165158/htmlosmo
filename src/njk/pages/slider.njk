@@ -1,0 +1,22 @@
+{% extends "src/njk/templates/layout.njk" %}
+
+{% block header %}
+    {% include "src/njk/templates/header.njk" %}
+{% endblock %}
+
+{% block body %}
+
+    {% block slideshow %}
+        {% include "src/njk/templates/slide-show.njk" %}
+    {% endblock %} 
+
+{% endblock %}
+
+{% block footer %}
+    {% include "src/njk/templates/footer.njk" %}
+{% endblock %}
+
+
+{% block script %}
+    <script src="../js/slider.js"></script>
+{% endblock %} 

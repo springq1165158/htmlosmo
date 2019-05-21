@@ -24,6 +24,7 @@ const APP_STRUCTURE = {
         js      : APP_TMP_PATH + '/js',
         htmls   : APP_TMP_PATH + '/htmls',
         videos   : APP_TMP_PATH + '/videos',
+        data   : APP_TMP_PATH + '/datas',
     },
     src :{
         scss    :  APP_SRC_PATH + '/scss',
@@ -33,6 +34,7 @@ const APP_STRUCTURE = {
         njk  : APP_SRC_PATH + '/njk',
         templates : APP_SRC_PATH + '/njk/templates',
         videos   : APP_SRC_PATH + '/videos',
+        data   : APP_SRC_PATH + '/datas',
     },
     dist:{
         scss    :  APP_DIST_PATH + '/scss',
@@ -41,6 +43,7 @@ const APP_STRUCTURE = {
         js      : APP_DIST_PATH + '/js',
         htmls   :APP_DIST_PATH + '/htmls',
         videos   : APP_DIST_PATH + '/videos',
+        data   : APP_DIST_PATH + '/datas',
     }
 }
 //--
@@ -91,6 +94,13 @@ gulp.task('copy:videos',function(){
       prefix:2,
   }))
 })
+gulp.task('copy:datas',function(){
+  return gulp.src(APP_STRUCTURE.src.data +'/**/*.json')
+  .pipe(gulpPlumber())
+  .pipe(gulpcopy(APP_STRUCTURE.tmp.data,{
+      prefix:2,
+  }))
+})
 //--image min
 gulp.task('image:min',function(){
     return gulp.src(APP_STRUCTURE.src.images + '/**/*.{jpg,png,gif,svg}')
@@ -103,7 +113,7 @@ gulp.task('image:min',function(){
 gulp.task('convertNunjucks',function(){
     return gulp.src(APP_STRUCTURE.src.njk + '/pages/*.njk')
     .pipe(data(function() {
-        return require('./src/njk/data.json')
+        return require('./src/datas/data.json')
       }))
     .pipe(nunjucksRender({
         path : APP_STRUCTURE.src.njk.templates,
@@ -139,6 +149,7 @@ gulp.task('watchchange',function()
 {
     gulp.watch(APP_STRUCTURE.src.njk +'/**/*.njk',gulp.series('convertNunjucks','browserSync:reload'))
     gulp.watch(APP_STRUCTURE.src.scss +'/**/*.scss',gulp.series('compileScss','browserSync:reload'))
+    gulp.watch(APP_STRUCTURE.src.data +'/**/*.json',gulp.series('copy:datas','convertNunjucks','browserSync:reload'))
     gulp.watch(APP_STRUCTURE.src.images +'/**/*.{jpg,png,gif,svg}',{
         events: ['add','change'],
     },gulp.series('copy:images','browserSync:reload'))
@@ -158,6 +169,7 @@ gulp.task('dev',
     'copy:fonts',
     'copy:js',
     'copy:videos',
+    'copy:datas',
     'compileScss',
     'convertNunjucks',
     gulp.parallel(
